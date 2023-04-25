@@ -216,7 +216,9 @@ function loadScene(file, initialScene = true) {
 }
 var msg = "";
 function displayNotification(data) {
-  notifbar = document.getElementById("notification-bar");
+  notifbar = document.getElementById("notification-bar");//need another call to this and then you can get more to print 
+  //go to ace or ying for help on the javascript
+  //or css stuff 
   // if(msg != data.info) {
     notifbar.textContent += data.info;
     // msg = data.info;

@@ -25,6 +25,7 @@ std::ostream& operator<<(std::ostream& os, const BoundingBox& bb) {
         os << bb.min[i];
     }
     os << "), (";
+    // std::cout << "IN BOUNDING BOX" << std::endl;
     for (int i = 0; i < bb.max.size(); i++) {
         if (i > 0) { os << ", "; }
         os << bb.max[i];
