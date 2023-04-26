@@ -81,6 +81,12 @@ class Drone : public IEntity {
    * @param dt Delta time
    * @param scheduler Vector containing all the entities in the system
    */
+  IStrategy* getToRobot(){
+    return toRobot;
+  } 
+  IStrategy* GetFinalDestination(){
+    return toFinalDestination;
+  }
   void Update(double dt, std::vector<IEntity*> scheduler);
 
   /**
