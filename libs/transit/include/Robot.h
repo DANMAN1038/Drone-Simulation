@@ -117,6 +117,7 @@ class Robot : public IEntity {
   float speed;
   bool available;
   std::string strategyName;
+  
 };
 
 #endif  // ROBOT_H

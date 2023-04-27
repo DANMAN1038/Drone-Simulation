@@ -72,6 +72,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   if (available)
     GetNearestEntity(scheduler);
 
+
   if (toRobot) {
     toRobot->Move(this, dt);
 
@@ -119,3 +120,4 @@ void Drone::Jump(double height) {
     }
   }
 }
+
