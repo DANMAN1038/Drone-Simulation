@@ -2,12 +2,11 @@
 #define DRONE_H_
 
 #include <vector>
-#include <list>
+
 
 #include "IEntity.h"
 #include "IStrategy.h"
 #include "math/vector3.h"
-#include "IObserver.h"
 
 // Represents a drone in a physical system.
 // Drones move using euler integration based on a specified
@@ -128,33 +127,6 @@ class Drone : public IEntity {
   Drone(const Drone& drone) = delete;
   Drone& operator=(const Drone& drone) = delete;
 
-  void Attach(IObserver *observer){
-    list_observer_.push_back(observer);
-  }
-
-  void Detach(IObserver *observer){
-    list_observer_.remove(observer);
-  }
-
-  void Notify(){
-    std::list<IObserver *>::iterator iterator = list_observer_.begin();
-    HowManyObserver();
-    while (iterator != list_observer_.end()) {
-      (*iterator)->Update(message_);
-      ++iterator;
-    }
-  }
-
-  void CreateMessage(std::string message = "Empty") {
-    this->message_ = message;
-    Notify();
-  }
-
-  void HowManyObserver() {
-    std::cout << "There are " << list_observer_.size() << " observers in the list.\n";
-}
-
-
  private:
   JsonObject details;
   Vector3 position;
@@ -169,8 +141,6 @@ class Drone : public IEntity {
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
-  std::list<IObserver *> list_observer_;
-  std::string message_;
 };
 
 #endif

@@ -1,10 +1,11 @@
 #ifndef DRONEOBSERVER_H_
 #define DRONEOBSERVER_H_
 #include "Drone.h"
+#include "IController.h"
 
 class DroneObserver : public IObserver {
  public:
-  DroneObserver(Drone &subject) : subject_(subject) {
+  DroneObserver(Drone &subject, IController &controller) : subject_(subject), controller_(controller){
     this->subject_.Attach(this);
     std::cout << "Hi, I'm the Drone Observer \"" << ++DroneObserver::static_number_ << "\".\n";
     this->number_ = DroneObserver::static_number_;
@@ -23,6 +24,15 @@ class DroneObserver : public IObserver {
   }
   void PrintInfo() {
     std::cout << "Drone Observer \"" << this->number_ << "\": a new message is available --> " << this->message_from_subject_ << "\n";
+    JsonObject details;
+    details["info"] = this->message_from_subject_;
+    controller_.SendEventToView("observe", details);
   }
-
+ private:
+  std::string message_from_subject_;
+  Drone &subject_;
+  int static_number_ =0;
+  int number_;
+  IController &controller_;
+};
 #endif
