@@ -23,7 +23,7 @@ class DroneObserver : public IObserver {
     std::cout << "Drone Observer \"" << number_ << "\" removed from the list.\n";
   }
   void PrintInfo() {
-    std::cout << "Drone Observer \"" << this->number_ << "\": a new message is available --> " << this->message_from_subject_ << "\n";
+    //std::cout << "Drone Observer \"" << this->number_ << "\": a new message is available --> " << this->message_from_subject_ << "\n";
     JsonObject details;
     details["info"] = this->message_from_subject_;
     controller_.SendEventToView("observe", details);

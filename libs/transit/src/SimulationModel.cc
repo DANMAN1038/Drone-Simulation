@@ -36,8 +36,6 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
   if(name.compare("Drone") == 0){
     DroneObserver *observer = new DroneObserver(*(static_cast<Drone*>(myNewEntity)), controller);
-    
-    myNewEntity->CreateMessage("Drone created.");
   }
   myNewEntity->SetGraph(graph);
 

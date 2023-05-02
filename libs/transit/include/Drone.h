@@ -141,6 +141,8 @@ class Drone : public IEntity {
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
+  int toRobotSwitch = 0;
+  int nearestEntitySwitch = 0;
 };
 
 #endif
