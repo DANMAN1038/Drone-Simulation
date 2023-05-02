@@ -2,10 +2,13 @@
 #define ENTITY_H_
 
 #include <vector>
+#include <list>
 
 #include "graph.h"
 #include "math/vector3.h"
 #include "util/json.h"
+#include "IObserver.h"
+
 
 using namespace routing;
 
@@ -155,9 +158,39 @@ class IEntity {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
   }
 
+
+  void Attach(IObserver *observer){
+    list_observer_.push_back(observer);
+  }
+
+  void Detach(IObserver *observer){
+    list_observer_.remove(observer);
+  }
+
+  void Notify(){
+    std::list<IObserver *>::iterator iterator = list_observer_.begin();
+    while (iterator != list_observer_.end()) {
+      (*iterator)->Update(message_);
+      ++iterator;
+    }
+  }
+
+  void CreateMessage(std::string message = "Empty") {
+    this->message_ = message;
+    Notify();
+  }
+
+  void HowManyObserver() {
+    std::cout << "There are " << list_observer_.size() << " observers in the list.\n";
+}
+
  protected:
   int id;
   const IGraph* graph;
+
+ private:
+  std::list<IObserver *> list_observer_;
+  std::string message_;
 };
 
 #endif

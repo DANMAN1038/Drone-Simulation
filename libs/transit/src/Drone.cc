@@ -72,10 +72,15 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   if (available)
     GetNearestEntity(scheduler);
 
+
   if (toRobot) {
     toRobot->Move(this, dt);
-
+    if (toRobotSwitch == 0){
+        this->CreateMessage("Drone " + std::to_string(this->GetId()) + " on the way to robot " + std::to_string(nearestEntity->GetId() -2) +"\n" );
+        toRobotSwitch = 1;
+    }
     if (toRobot->IsCompleted()) {
+      this->CreateMessage("Drone " + std::to_string(this->GetId()) + " picked up robot " + std::to_string(nearestEntity->GetId() -2) +"\n");
       delete toRobot;
       toRobot = nullptr;
       pickedUp = true;
@@ -86,14 +91,22 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     if (nearestEntity && pickedUp) {
       nearestEntity->SetPosition(position);
       nearestEntity->SetDirection(direction);
+      if (nearestEntitySwitch == 0){
+        this->CreateMessage("Drone " + std::to_string(this->GetId()) + " is delivering robot " +std::to_string(nearestEntity->GetId() -2) + " to the final destination\n");
+        nearestEntitySwitch = 1;
+      }
     }
 
     if (toFinalDestination->IsCompleted()) {
+      this->CreateMessage("Drone " + std::to_string(this->GetId()) + " has delivered robot " +std::to_string(nearestEntity->GetId() -2) + " to the final destination.\n");
       delete toFinalDestination;
       toFinalDestination = nullptr;
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
+      nearestEntitySwitch = 0;
+      toRobotSwitch = 0;
+      
     }
   }
 }
@@ -119,3 +132,4 @@ void Drone::Jump(double height) {
     }
   }
 }
+

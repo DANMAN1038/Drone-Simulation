@@ -4,6 +4,7 @@
 #include "RobotFactory.h"
 #include "HumanFactory.h"
 #include "HelicopterFactory.h"
+#include "DroneObserver.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -33,6 +34,9 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   std::cout << name << ": " << position << std::endl;
 
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
+  if(name.compare("Drone") == 0){
+    DroneObserver *observer = new DroneObserver(*(static_cast<Drone*>(myNewEntity)), controller);
+  }
   myNewEntity->SetGraph(graph);
 
   // Call AddEntity to add it to the view
