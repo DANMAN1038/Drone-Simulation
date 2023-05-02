@@ -87,6 +87,10 @@ class Drone : public IEntity {
   IStrategy* GetFinalDestination(){
     return toFinalDestination;
   }
+
+  bool Getpickedup(){
+    return pickedUp;
+  }
   void Update(double dt, std::vector<IEntity*> scheduler);
 
   /**
