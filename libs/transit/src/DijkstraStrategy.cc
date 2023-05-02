@@ -1,6 +1,13 @@
 #include "DijkstraStrategy.h"
 #include "routing/dijkstra.h"
 
+/**
+   * @brief Construct a new Astar Strategy object
+   *
+   * @param position Current position
+   * @param destination End destination
+   * @param graph Graph/Nodes of the map
+   */
 DijkstraStrategy::DijkstraStrategy(Vector3 pos, Vector3 des,
                                    const routing::IGraph* g) {
   std::vector<float> start = {pos[0], pos[1], pos[2]};

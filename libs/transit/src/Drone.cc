@@ -11,6 +11,10 @@
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"
 
+/**
+   * @brief Drones are created with a name
+   * @param obj JSON object containing the drone's information
+   */
 Drone::Drone(JsonObject& obj) : details(obj) {
   JsonArray pos(obj["position"]);
   position = {pos[0], pos[1], pos[2]};
@@ -22,6 +26,9 @@ Drone::Drone(JsonObject& obj) : details(obj) {
   available = true;
 }
 
+ /**
+   * @brief Destructor
+   */
 Drone::~Drone() {
   // Delete dynamically allocated variables
   delete graph;
@@ -30,6 +37,10 @@ Drone::~Drone() {
   delete toFinalDestination;
 }
 
+/**
+   * @brief Gets the nearest entity in the scheduler
+   * @param scheduler Vector containing all the entities in the system
+   */
 void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
   float minDis = std::numeric_limits<float>::max();
   for (auto entity : scheduler) {
@@ -68,6 +79,11 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
   }
 }
 
+/**
+   * @brief Updates the drone's position
+   * @param dt Delta time
+   * @param scheduler Vector containing all the entities in the system
+   */
 void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   if (available)
     GetNearestEntity(scheduler);
@@ -111,12 +127,20 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   }
 }
 
+/**
+   * @brief Rotates the drone
+   * @param angle The angle by which the drone should be rotated
+   */
 void Drone::Rotate(double angle) {
   Vector3 dirTmp = direction;
   direction.x = dirTmp.x * std::cos(angle) - dirTmp.z * std::sin(angle);
   direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
 }
 
+/**
+   * @brief Makes the drone jump
+   * @param height The height at which the drone should jump
+   */
 void Drone::Jump(double height) {
   if (goUp) {
     position.y += height;

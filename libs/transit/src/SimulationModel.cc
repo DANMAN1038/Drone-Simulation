@@ -6,6 +6,9 @@
 #include "HelicopterFactory.h"
 #include "DroneObserver.h"
 
+/**
+   * @brief Default constructor that create the SimulationModel object
+   **/
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
   compFactory = new CompositeFactory();
@@ -15,6 +18,9 @@ SimulationModel::SimulationModel(IController& controller)
   AddFactory(new HelicopterFactory());
 }
 
+/**
+   * @brief Destructor
+   */
 SimulationModel::~SimulationModel() {
   // Delete dynamically allocated variables
   for (int i = 0; i < entities.size(); i++) {
@@ -27,6 +33,11 @@ SimulationModel::~SimulationModel() {
   delete compFactory;
 }
 
+/**
+   * @brief Creates a new simulation entitiy
+   * @param entity Type JsonObject contain the entity's reference to decide
+   *which entnity to create
+   **/
 void SimulationModel::CreateEntity(JsonObject& entity) {
   std::string type = entity["type"];
   std::string name = entity["name"];
@@ -50,7 +61,11 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   entities.push_back(myNewEntity);
 }
 
-/// Schedules a trip for an object in the scene
+ /**
+   * @brief Schedule a trip for an object in the scene
+   * @param detail Type JsonObject contain the entity's reference to schedule
+   *the detail of the trip being scheduled
+   **/
 void SimulationModel::ScheduleTrip(JsonObject& details) {
   std::string name = details["name"];
   JsonArray start = details["start"];
@@ -73,7 +88,10 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
   controller.SendEventToView("TripScheduled", details);
 }
 
-/// Updates the simulation
+/**
+   * @brief Update the simulation
+   * @param dt Type double contain the time since update was last called.
+   **/
 void SimulationModel::Update(double dt) {
   for (int i = 0; i < entities.size(); i++) {
     entities[i]->Update(dt, scheduler);
@@ -81,6 +99,10 @@ void SimulationModel::Update(double dt) {
   }
 }
 
+/**
+   * @brief Add new factory into the simulation
+   * @param factory - Factory to add into the simulation.
+   */
 void SimulationModel::AddFactory(IEntityFactory* factory) {
   compFactory->AddFactory(factory);
 }
