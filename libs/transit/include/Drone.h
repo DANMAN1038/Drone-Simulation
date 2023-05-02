@@ -127,6 +127,7 @@ class Drone : public IEntity {
   Drone(const Drone& drone) = delete;
   Drone& operator=(const Drone& drone) = delete;
 
+
  private:
   JsonObject details;
   Vector3 position;

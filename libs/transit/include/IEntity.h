@@ -182,11 +182,20 @@ class IEntity {
 
   void HowManyObserver() {
     std::cout << "There are " << list_observer_.size() << " observers in the list.\n";
-}
+  }
+
+  int getNum(){
+    return num;
+  }
+
+  int setNum(int n){
+    num = n;
+  }
 
  protected:
   int id;
   const IGraph* graph;
+  int num;
 
  private:
   std::list<IObserver *> list_observer_;

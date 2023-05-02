@@ -34,8 +34,14 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   std::cout << name << ": " << position << std::endl;
 
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
-  if(name.compare("Drone") == 0){
+  if(type.compare("drone") == 0){
     DroneObserver *observer = new DroneObserver(*(static_cast<Drone*>(myNewEntity)), controller);
+    myNewEntity->setNum(droneCounter);
+    droneCounter++;
+  }
+  else if(type.compare("robot") == 0){
+    myNewEntity->setNum(robotCounter);
+    robotCounter++;
   }
   myNewEntity->SetGraph(graph);
 
