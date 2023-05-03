@@ -5,11 +5,11 @@ Danial Syed(syed0053), Taha Rao(rao00041), Bach Tran(tran1003), Ibrahim Hosh(hos
 This project is a simulation of a drone delivery system with a rough replica of the University of Minnesota Twin Cities Campus. It allows users to schedule trips for drones to pickup robots based off a search name (traversal algorithm) and the start and finish locations of the trip. The simulation allows users to see the drone take its course in picking up the robot and dropping it off at the final destination. Our extensions notifies the user of the progress of this process using the notification bar on the left hand side of the simulation screen and extracts data from the system into a csv file for system analysis.
 
 # How to run //TODO need to add docker instructions
-// Move into Project location
+    // Move into Project location
     cd /path/to/repo/project
-// Run the makefile
+    // Run the makefile
     make -j
-// Build the system and environment
+    // Build the system and environment
     ./build/bin/transit_service 8081 apps/transit_service/web/
     // Open simulation
     Navigate to http://127.0.0.1:8081 and you should see a visualization.
