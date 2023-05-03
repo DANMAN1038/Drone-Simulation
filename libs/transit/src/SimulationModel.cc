@@ -1,5 +1,5 @@
 #include "SimulationModel.h"
-
+#include "DroneLogger.h"
 #include "DroneFactory.h"
 #include "RobotFactory.h"
 #include "HumanFactory.h"
@@ -86,6 +86,12 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
     }
   }
   controller.SendEventToView("TripScheduled", details);
+  // JsonObject details2;
+  // details2["info"] = "How are you doing today \n I'm doing great 1 \n";
+  // controller.SendEventToView("observe",details2);
+  // JsonObject details3;
+  // details3["info"] = "Testing a second message \n";
+  // controller.SendEventToView("observe",details3);
 }
 
 /**
@@ -95,6 +101,10 @@ void SimulationModel::ScheduleTrip(JsonObject& details) {
 void SimulationModel::Update(double dt) {
   for (int i = 0; i < entities.size(); i++) {
     entities[i]->Update(dt, scheduler);
+
+    DroneLogger* singleton = DroneLogger::GetInstance();     // Gets one instance and logdrone information to csv file
+    singleton->logDrone(entities[i]);
+
     controller.UpdateEntity(*entities[i]);
   }
 }
