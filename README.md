@@ -20,18 +20,18 @@ This is a full stack project that enables C++ code in the backend to receive inp
             - The drone has started its route to pick up the robot
             - The drone has picked up the robot
             - The drone has started its route to deliver the robot to its final destination
-            - The drone has deliver the robot to its final destination
+            - The drone has delivered the robot to its final destination
         This feature is significantly interesting since it updates the user with the status of the drone that was scheduled. Thus, there is no need to endlessly follow the drone and see where its current location is. Notifications can practically serve as checkpoints that allow the user to know how far the drone has gotten up until that point.
         This feature added onto the existing work by becoming more user friendly with regards to updating the user with the status of the drone. 
         We chose the observer design pattern as it allows our drone object to update and notify us with its current status. Another reason we chose this design pattern is because it was minimal and did not tamper too much with the already existing implementation of the project which lowers risk of error.
-        Schedule a trip as you normally would and it will automatically send notifications to the front end UI on the left hand side of the simulation screen. In order to schedule a trip, follow the "How to run" instructions" and head to http://127.0.0.1:8081/schedule.html. From there, enter a name, choose a search strategy, and pinpoint on the map a start and end location. Click "Schedule Trip" and the head back to the simulation (http://127.0.0.1:8081) and you will notice the notifications appearing on the left hand side
+        In order to observe this feature, schedule a trip as you normally would and it will automatically send notifications to the front end UI on the left hand side of the simulation screen. In order to schedule a trip, follow the "How to run" instructions" and head to http://127.0.0.1:8081/schedule.html. From there, enter a name, choose a search strategy, and pinpoint on the map a start and end location. Click "Schedule Trip" and the head back to the simulation (http://127.0.0.1:8081) and you will notice the notifications appearing on the left hand side
 
-    Feature 2: Data Collection //TODO
-        What does it do?//TODO
-        This feature is signficantly interesting as it allows users to observe //TODO
-        This feature adds onto the existing work as it //TODO
+    Feature 2: Data Collection 
+        Collects direction and position for x, y, and z coordinates as well as the speed and color of different instances in time of the drone as well as the average speed and total distance for the robot and appends this data to a .csv file which is available for observation.
+        This feature is signficantly interesting as it allows users to observe the different data elements of the drone and robot and can be used for further analysis such as how efficient different traversal algorithms are.
+        This feature adds onto the existing work as it allows for further analysis of the different locations a user can schedule for a trip as well as the different traversal algorithms.
         We used a Singleton design pattern as it allowed us to call a single object and consistently write to our .csv file with new data that needed to be entered. Similar to observer, this didn't disturb the preexisting system and only added onto to it. 
-        Instruction to use this new feature (if the new feature is not user interactable, please mention this as well)//TODO
+        In order to use this feature, run the simulation with at least one fully completed scheduled trip (you'll know when that trip is done from the notifications on the left hand side). Once complete, you'll be able to access a newly generated file called "data.csv". We recommend opening the file with Microsoft Excel or Google Sheets as they use commands specific to those tools. From there, you'll be able to observe the various amounts of data that was collected. 
 
 # Sprint retrospective
     What went well:

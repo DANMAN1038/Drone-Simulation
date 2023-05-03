@@ -11,8 +11,7 @@ Represents an entity in a physical system.
 
 
 
-Inheritance diagram for I\+Entity\+:
-\nopagebreak
+Inheritance diagram for I\+Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -66,24 +65,24 @@ virtual void \mbox{\hyperlink{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}{Ro
 \begin{DoxyCompactList}\small\item\em Rotate the entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIEntity_a4e8eb64a324e1196be039c5e2a293b7a}{Jump}} (double height)
 \begin{DoxyCompactList}\small\item\em Make the entity jump. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classIEntity_a40b0caaefcd247250efd2f12a3335a73}\label{classIEntity_a40b0caaefcd247250efd2f12a3335a73}} 
-virtual float {\bfseries Random} (float Min, float Max)
-\item 
-\mbox{\Hypertarget{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}\label{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}} 
-void {\bfseries Attach} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
-\item 
-\mbox{\Hypertarget{classIEntity_aaa8d8c603d62c13752ea67db807b536e}\label{classIEntity_aaa8d8c603d62c13752ea67db807b536e}} 
-void {\bfseries Detach} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
-\item 
+virtual float \mbox{\hyperlink{classIEntity_a40b0caaefcd247250efd2f12a3335a73}{Random}} (float Min, float Max)
+\begin{DoxyCompactList}\small\item\em Generates a random float between min and max values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}{Attach}} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em Attaches an \mbox{\hyperlink{classIObserver}{I\+Observer}} object to the Observable object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_aaa8d8c603d62c13752ea67db807b536e}{Detach}} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em Detaches an \mbox{\hyperlink{classIObserver}{I\+Observer}} object from the Observable object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classIEntity_ace73cea71bcfc2d0d4093014ca4b0be1}\label{classIEntity_ace73cea71bcfc2d0d4093014ca4b0be1}} 
-void {\bfseries Notify} ()
-\item 
-\mbox{\Hypertarget{classIEntity_abe8662c116444f48b682861657f5f8c9}\label{classIEntity_abe8662c116444f48b682861657f5f8c9}} 
-void {\bfseries Create\+Message} (std\+::string message=\char`\"{}Empty\char`\"{})
-\item 
+void \mbox{\hyperlink{classIEntity_ace73cea71bcfc2d0d4093014ca4b0be1}{Notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached \mbox{\hyperlink{classIObserver}{I\+Observer}} objects that the object\textquotesingle{}s state has changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_abe8662c116444f48b682861657f5f8c9}{Create\+Message}} (std\+::string message=\char`\"{}Empty\char`\"{})
+\begin{DoxyCompactList}\small\item\em Creates a message to be sent to all attached \mbox{\hyperlink{classIObserver}{I\+Observer}} objects. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classIEntity_adb5b0096be349bd7e8ed08583bce1955}\label{classIEntity_adb5b0096be349bd7e8ed08583bce1955}} 
-void {\bfseries How\+Many\+Observer} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classIEntity_adb5b0096be349bd7e8ed08583bce1955}{How\+Many\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Prints the number of attached \mbox{\hyperlink{classIObserver}{I\+Observer}} objects. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classIEntity_a8e6b261629035e30cc3bbde97aa4139e}{get\+Num}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of drones. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classIEntity_a2df290a833724f51f914e1033dd9fe7b}{set\+Num}} (int n)
+\begin{DoxyCompactList}\small\item\em Sets the number of drones. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -92,6 +91,9 @@ int {\bfseries id}
 \item 
 \mbox{\Hypertarget{classIEntity_a5d4d1c3d5da8a816fe03522cd0b4fcb3}\label{classIEntity_a5d4d1c3d5da8a816fe03522cd0b4fcb3}} 
 const I\+Graph $\ast$ {\bfseries graph}
+\item 
+\mbox{\Hypertarget{classIEntity_aca802eac6c91085343c559b3457dd487}\label{classIEntity_aca802eac6c91085343c559b3457dd487}} 
+int {\bfseries num}
 \end{DoxyCompactItemize}
 
 
@@ -101,6 +103,51 @@ Represents an entity in a physical system.
 An \mbox{\hyperlink{classIEntity}{I\+Entity}} object has a unique ID, a position, a direction, a destination, and details. It also has a speed, which determines how fast the entity moves in the physical system. Subclasses of \mbox{\hyperlink{classIEntity}{I\+Entity}} can override the {\ttfamily Update} function to implement their own movement behavior. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}\label{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}} 
+\index{IEntity@{IEntity}!Attach@{Attach}}
+\index{Attach@{Attach}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Attach()}{Attach()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Attaches an \mbox{\hyperlink{classIObserver}{I\+Observer}} object to the Observable object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & The \mbox{\hyperlink{classIObserver}{I\+Observer}} object to attach. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEntity_abe8662c116444f48b682861657f5f8c9}\label{classIEntity_abe8662c116444f48b682861657f5f8c9}} 
+\index{IEntity@{IEntity}!CreateMessage@{CreateMessage}}
+\index{CreateMessage@{CreateMessage}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{CreateMessage()}{CreateMessage()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Create\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{message = {\ttfamily \char`\"{}Empty\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a message to be sent to all attached \mbox{\hyperlink{classIObserver}{I\+Observer}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be sent. Defaults to \char`\"{}\+Empty\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEntity_aaa8d8c603d62c13752ea67db807b536e}\label{classIEntity_aaa8d8c603d62c13752ea67db807b536e}} 
+\index{IEntity@{IEntity}!Detach@{Detach}}
+\index{Detach@{Detach}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Detach()}{Detach()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Detaches an \mbox{\hyperlink{classIObserver}{I\+Observer}} object from the Observable object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & The \mbox{\hyperlink{classIObserver}{I\+Observer}} object to detach. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classIEntity_a90348881691a37d5c3d63265ed3463b1}\label{classIEntity_a90348881691a37d5c3d63265ed3463b1}} 
 \index{IEntity@{IEntity}!GetAvailability@{GetAvailability}}
 \index{GetAvailability@{GetAvailability}!IEntity@{IEntity}}
@@ -199,6 +246,19 @@ Gets the ID of the entity.
 \begin{DoxyReturn}{Returns}
 The ID of the entity. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classIEntity_a8e6b261629035e30cc3bbde97aa4139e}\label{classIEntity_a8e6b261629035e30cc3bbde97aa4139e}} 
+\index{IEntity@{IEntity}!getNum@{getNum}}
+\index{getNum@{getNum}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{getNum()}{getNum()}}
+{\footnotesize\ttfamily int I\+Entity\+::get\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of drones. 
+
+\begin{DoxyReturn}{Returns}
+Number of drones. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classIEntity_a9bc32587aab91761fc0e718612498199}\label{classIEntity_a9bc32587aab91761fc0e718612498199}} 
 \index{IEntity@{IEntity}!GetPosition@{GetPosition}}
 \index{GetPosition@{GetPosition}!IEntity@{IEntity}}
@@ -269,6 +329,26 @@ Make the entity jump.
 
 Reimplemented in \mbox{\hyperlink{classDrone_a1559fe24a5792ac72ba9d8a4a13a9ec8}{Drone}}.
 
+\mbox{\Hypertarget{classIEntity_a40b0caaefcd247250efd2f12a3335a73}\label{classIEntity_a40b0caaefcd247250efd2f12a3335a73}} 
+\index{IEntity@{IEntity}!Random@{Random}}
+\index{Random@{Random}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily virtual float I\+Entity\+::\+Random (\begin{DoxyParamCaption}\item[{float}]{Min,  }\item[{float}]{Max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Generates a random float between min and max values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Min} & Minimum value of the random float. \\
+\hline
+{\em Max} & Maximum value of the random float. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random float between Min and Max. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}\label{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}} 
 \index{IEntity@{IEntity}!Rotate@{Rotate}}
 \index{Rotate@{Rotate}!IEntity@{IEntity}}
@@ -343,7 +423,7 @@ Set the destination of the entity.
 \end{DoxyParams}
 
 
-Reimplemented in \mbox{\hyperlink{classRobot_a557af09ca03132837bc6574bca6fbe05}{Robot}}, \mbox{\hyperlink{classDrone_a2dfb158a784d354d13740a40151fb312}{Drone}}, \mbox{\hyperlink{classHelicopter_a2ed1e8574f7b4d2dcf4f521008cf7286}{Helicopter}}, and \mbox{\hyperlink{classHuman_afafadfceb5333d5016dc1a463b5f77c9}{Human}}.
+Reimplemented in \mbox{\hyperlink{classDrone_a2dfb158a784d354d13740a40151fb312}{Drone}}, \mbox{\hyperlink{classRobot_a557af09ca03132837bc6574bca6fbe05}{Robot}}, \mbox{\hyperlink{classHelicopter_a2ed1e8574f7b4d2dcf4f521008cf7286}{Helicopter}}, and \mbox{\hyperlink{classHuman_afafadfceb5333d5016dc1a463b5f77c9}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a64bfaa448a929ca71693ff3e2edb9d97}\label{classIEntity_a64bfaa448a929ca71693ff3e2edb9d97}} 
 \index{IEntity@{IEntity}!SetDirection@{SetDirection}}
@@ -362,7 +442,7 @@ Set the direction of the entity.
 \end{DoxyParams}
 
 
-Reimplemented in \mbox{\hyperlink{classRobot_aaa0e41dbf57cb4040c0319b93c5a008c}{Robot}}, \mbox{\hyperlink{classDrone_a102651f93957b1dbe8199cbd30a9e26f}{Drone}}, \mbox{\hyperlink{classHelicopter_a00794cb2f624ca1b3d01c5920377afaf}{Helicopter}}, and \mbox{\hyperlink{classHuman_a61b07f167a38968c9811eee2fb85d49d}{Human}}.
+Reimplemented in \mbox{\hyperlink{classDrone_a102651f93957b1dbe8199cbd30a9e26f}{Drone}}, \mbox{\hyperlink{classRobot_aaa0e41dbf57cb4040c0319b93c5a008c}{Robot}}, \mbox{\hyperlink{classHelicopter_a00794cb2f624ca1b3d01c5920377afaf}{Helicopter}}, and \mbox{\hyperlink{classHuman_a61b07f167a38968c9811eee2fb85d49d}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a6b8b8eb627e8945fdc997f7a9d457df0}\label{classIEntity_a6b8b8eb627e8945fdc997f7a9d457df0}} 
 \index{IEntity@{IEntity}!SetGraph@{SetGraph}}
@@ -377,6 +457,21 @@ Sets the graph object used by the entity in the simulation.
 
 \begin{DoxyParams}{Parameters}
 {\em graph} & The I\+Graph object to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEntity_a2df290a833724f51f914e1033dd9fe7b}\label{classIEntity_a2df290a833724f51f914e1033dd9fe7b}} 
+\index{IEntity@{IEntity}!setNum@{setNum}}
+\index{setNum@{setNum}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{setNum()}{setNum()}}
+{\footnotesize\ttfamily int I\+Entity\+::set\+Num (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the number of drones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of drones. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classIEntity_af0475048b09dc13ed6cf8e7c7be2ae6b}\label{classIEntity_af0475048b09dc13ed6cf8e7c7be2ae6b}} 
@@ -396,7 +491,7 @@ Sets the position of the entity.
 \end{DoxyParams}
 
 
-Reimplemented in \mbox{\hyperlink{classRobot_a35ce73ea17f6cfbcbfe272c6bff038ba}{Robot}}, \mbox{\hyperlink{classDrone_a00150938e8dbfceaf81c9fb59994f6ef}{Drone}}, \mbox{\hyperlink{classHelicopter_a0a7386badb41e8f39b14095ffbfd4efd}{Helicopter}}, and \mbox{\hyperlink{classHuman_aa0a0ca8e4482a77a3ac75cb09b14061f}{Human}}.
+Reimplemented in \mbox{\hyperlink{classDrone_a00150938e8dbfceaf81c9fb59994f6ef}{Drone}}, \mbox{\hyperlink{classRobot_a35ce73ea17f6cfbcbfe272c6bff038ba}{Robot}}, \mbox{\hyperlink{classHelicopter_a0a7386badb41e8f39b14095ffbfd4efd}{Helicopter}}, and \mbox{\hyperlink{classHuman_aa0a0ca8e4482a77a3ac75cb09b14061f}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a933def05f85783fddbf05e8257cc8880}\label{classIEntity_a933def05f85783fddbf05e8257cc8880}} 
 \index{IEntity@{IEntity}!SetStrategyName@{SetStrategyName}}

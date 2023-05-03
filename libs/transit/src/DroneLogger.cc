@@ -1,9 +1,16 @@
 #include "DroneLogger.h"
 #include <mutex> 
+/**
+ * @brief A singleton class that logs the data of a drone and robot
+ */
 DroneLogger* DroneLogger::pinstance_ = nullptr;
 DroneLogger::DroneLogger(){
     this->pinstance_ = nullptr;
 };
+/**
+     * @brief Returns the instance of a drone
+     * @return The instance of the drone
+     */
 DroneLogger* DroneLogger::GetInstance()
 {
     if (pinstance_ == nullptr){
@@ -15,14 +22,19 @@ int counter = 0;                                           // counter used to tr
 int num_rows = 1;                                          // num rows for excel calculations
 bool lastline = false;                                     // Makes sure to write last line only once
 int robotrow = 0;                                         // What row in excel the robot was picked up
-bool pickup = false;                                       // Make sure the value of robot_row isn't changed
+bool pickup = false;  
+                                     // Make sure the value of robot_row isn't changed
+/**
+    * @brief Logs the data of a drone.
+    * @param drone A pointer to the drone entity.
+    */
 void DroneLogger::logDrone(IEntity * drone){
     Drone* drone_test = dynamic_cast<Drone*>(drone);
     if(drone_test == nullptr){
         return;                                                       // Checks if Ientity is a drone
     }
     if(counter == 0){
-        std::ofstream file("example.csv", std::ios::trunc);
+        std::ofstream file("data.csv", std::ios::trunc);
         if (!file.is_open()) {
             std::cerr << "Failed to open file!" << std::endl;
             return;                                                       // Gets rid of what was in the file and writes the first line
@@ -36,7 +48,7 @@ void DroneLogger::logDrone(IEntity * drone){
 
     if(counter == 750){                                                     // Only writes every 750 updates
         if(drone_test->GetFinalDestination() != nullptr){                    // While drone hasn't gone to the final destination
-            std::ofstream file("example.csv", std::ios::app);                
+            std::ofstream file("data.csv", std::ios::app);                
             if(!file.is_open()) {
                 std::cerr << "Failed to open file!" << std::endl;
                 return;
@@ -53,7 +65,7 @@ void DroneLogger::logDrone(IEntity * drone){
             file.close();
         }
         else if(lastline == false){
-            std::ofstream file("example.csv", std::ios::app);
+            std::ofstream file("data.csv", std::ios::app);
             if(!file.is_open()) {                                                            // Makes sure the last line is printed once 
                 std::cerr << "Failed to open file!" << std::endl;
                 return;

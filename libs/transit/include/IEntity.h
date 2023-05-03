@@ -154,19 +154,35 @@ class IEntity {
    */
   virtual void Jump(double height) {}
 
+  /**
+   * @brief Generates a random float between min and max values
+   * @param Min Minimum value of the random float.
+   * @param Max Maximum value of the random float.
+   * @return Random float between Min and Max.
+   */
   virtual float Random(float Min, float Max) {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
   }
 
-
+  /**
+   * @brief Attaches an IObserver object to the Observable object.
+   * @param observer The IObserver object to attach.
+   */
   void Attach(IObserver *observer){
     list_observer_.push_back(observer);
   }
 
+  /**
+   * @brief Detaches an IObserver object from the Observable object.
+   * @param observer The IObserver object to detach.
+   */
   void Detach(IObserver *observer){
     list_observer_.remove(observer);
   }
 
+  /**
+   * @brief Notifies all attached IObserver objects that the object's state has changed.
+   */
   void Notify(){
     std::list<IObserver *>::iterator iterator = list_observer_.begin();
     while (iterator != list_observer_.end()) {
@@ -175,19 +191,34 @@ class IEntity {
     }
   }
 
+  /**
+   * @brief Creates a message to be sent to all attached IObserver objects.
+   * @param message The message to be sent. Defaults to "Empty".
+   */
   void CreateMessage(std::string message = "Empty") {
     this->message_ = message;
     Notify();
   }
 
+  /**
+   * @brief Prints the number of attached IObserver objects.
+   */
   void HowManyObserver() {
     std::cout << "There are " << list_observer_.size() << " observers in the list.\n";
   }
 
+  /**
+   * @brief Gets the number of drones.
+   * @return Number of drones.
+   */
   int getNum(){
     return num;
   }
 
+  /**
+   * @brief Sets the number of drones.
+   * @param n Number of drones.
+   */
   int setNum(int n){
     num = n;
   }

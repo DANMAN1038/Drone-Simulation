@@ -125,6 +125,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21d9dc799ee8a6c10b579fcab401bd57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDrone.html#a21d9dc799ee8a6c10b579fcab401bd57">GetNearestEntity</a> (std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt; scheduler)</td></tr>
 <tr class="memdesc:a21d9dc799ee8a6c10b579fcab401bd57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the nearest entity in the scheduler.  <a href="classDrone.html#a21d9dc799ee8a6c10b579fcab401bd57">More...</a><br /></td></tr>
 <tr class="separator:a21d9dc799ee8a6c10b579fcab401bd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4991de2a9adc61748502d36bd461fffd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIStrategy.html">IStrategy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDrone.html#a4991de2a9adc61748502d36bd461fffd">getToRobot</a> ()</td></tr>
+<tr class="memdesc:a4991de2a9adc61748502d36bd461fffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the drone's position.  <a href="classDrone.html#a4991de2a9adc61748502d36bd461fffd">More...</a><br /></td></tr>
+<tr class="separator:a4991de2a9adc61748502d36bd461fffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbbe079bf9d67e31036fcae85705fe93"><td class="memItemLeft" align="right" valign="top"><a id="adbbe079bf9d67e31036fcae85705fe93"></a>
+<a class="el" href="classIStrategy.html">IStrategy</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetFinalDestination</b> ()</td></tr>
+<tr class="separator:adbbe079bf9d67e31036fcae85705fe93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ff899d87a153db3502630bad8fe3f7"><td class="memItemLeft" align="right" valign="top"><a id="a53ff899d87a153db3502630bad8fe3f7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Getpickedup</b> ()</td></tr>
+<tr class="separator:a53ff899d87a153db3502630bad8fe3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6798b0bd297ca7a930016cd2dda0b7ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff">Update</a> (double dt, std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt; scheduler)</td></tr>
 <tr class="memdesc:a6798b0bd297ca7a930016cd2dda0b7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the drone's position.  <a href="classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff">More...</a><br /></td></tr>
 <tr class="separator:a6798b0bd297ca7a930016cd2dda0b7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,24 +186,32 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a6b8b8eb627e8945fdc997f7a9d457df0">SetGraph</a> (const IGraph *graph)</td></tr>
 <tr class="memdesc:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the graph object used by the entity in the simulation.  <a href="classIEntity.html#a6b8b8eb627e8945fdc997f7a9d457df0">More...</a><br /></td></tr>
 <tr class="separator:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="a40b0caaefcd247250efd2f12a3335a73"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>Random</b> (float Min, float Max)</td></tr>
+<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">Random</a> (float Min, float Max)</td></tr>
+<tr class="memdesc:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random float between min and max values.  <a href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">More...</a><br /></td></tr>
 <tr class="separator:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="ace22b6af4e4c6804487d4a67d18a2c52"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Attach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">Attach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches an <a class="el" href="classIObserver.html">IObserver</a> object to the Observable object.  <a href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">More...</a><br /></td></tr>
 <tr class="separator:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="aaa8d8c603d62c13752ea67db807b536e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Detach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">Detach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches an <a class="el" href="classIObserver.html">IObserver</a> object from the Observable object.  <a href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">More...</a><br /></td></tr>
 <tr class="separator:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace73cea71bcfc2d0d4093014ca4b0be1 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="ace73cea71bcfc2d0d4093014ca4b0be1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Notify</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#ace73cea71bcfc2d0d4093014ca4b0be1">Notify</a> ()</td></tr>
+<tr class="memdesc:ace73cea71bcfc2d0d4093014ca4b0be1 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached <a class="el" href="classIObserver.html">IObserver</a> objects that the object's state has changed. <br /></td></tr>
 <tr class="separator:ace73cea71bcfc2d0d4093014ca4b0be1 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe8662c116444f48b682861657f5f8c9 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="abe8662c116444f48b682861657f5f8c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CreateMessage</b> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memitem:abe8662c116444f48b682861657f5f8c9 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#abe8662c116444f48b682861657f5f8c9">CreateMessage</a> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memdesc:abe8662c116444f48b682861657f5f8c9 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a message to be sent to all attached <a class="el" href="classIObserver.html">IObserver</a> objects.  <a href="classIEntity.html#abe8662c116444f48b682861657f5f8c9">More...</a><br /></td></tr>
 <tr class="separator:abe8662c116444f48b682861657f5f8c9 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb5b0096be349bd7e8ed08583bce1955 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="adb5b0096be349bd7e8ed08583bce1955"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>HowManyObserver</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#adb5b0096be349bd7e8ed08583bce1955">HowManyObserver</a> ()</td></tr>
+<tr class="memdesc:adb5b0096be349bd7e8ed08583bce1955 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the number of attached <a class="el" href="classIObserver.html">IObserver</a> objects. <br /></td></tr>
 <tr class="separator:adb5b0096be349bd7e8ed08583bce1955 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6b261629035e30cc3bbde97aa4139e inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a8e6b261629035e30cc3bbde97aa4139e">getNum</a> ()</td></tr>
+<tr class="memdesc:a8e6b261629035e30cc3bbde97aa4139e inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of drones.  <a href="classIEntity.html#a8e6b261629035e30cc3bbde97aa4139e">More...</a><br /></td></tr>
+<tr class="separator:a8e6b261629035e30cc3bbde97aa4139e inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df290a833724f51f914e1033dd9fe7b inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a2df290a833724f51f914e1033dd9fe7b">setNum</a> (int n)</td></tr>
+<tr class="memdesc:a2df290a833724f51f914e1033dd9fe7b inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of drones.  <a href="classIEntity.html#a2df290a833724f51f914e1033dd9fe7b">More...</a><br /></td></tr>
+<tr class="separator:a2df290a833724f51f914e1033dd9fe7b inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -205,6 +222,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
 <tr class="memitem:a5d4d1c3d5da8a816fe03522cd0b4fcb3 inherit pro_attribs_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d1c3d5da8a816fe03522cd0b4fcb3"></a>
 const IGraph *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></td></tr>
 <tr class="separator:a5d4d1c3d5da8a816fe03522cd0b4fcb3 inherit pro_attribs_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca802eac6c91085343c559b3457dd487 inherit pro_attribs_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="aca802eac6c91085343c559b3457dd487"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>num</b></td></tr>
+<tr class="separator:aca802eac6c91085343c559b3457dd487 inherit pro_attribs_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a drone in a physical system. Drones move using euler integration based on a specified velocity and direction. </p>
@@ -469,6 +489,40 @@ const IGraph *&#160;</td><td class="memItemRight" valign="bottom"><b>graph</b></
 <dl class="section return"><dt>Returns</dt><dd>The speed of the drone </dd></dl>
 
 <p>Implements <a class="el" href="classIEntity.html#a6520d2b1dc71d092bab38ef9f5cc9ff4">IEntity</a>.</p>
+
+</div>
+</div>
+<a id="a4991de2a9adc61748502d36bd461fffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4991de2a9adc61748502d36bd461fffd">&#9670;&nbsp;</a></span>getToRobot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIStrategy.html">IStrategy</a>* Drone::getToRobot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the drone's position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>Delta time </td></tr>
+    <tr><td class="paramname">scheduler</td><td>Vector containing all the entities in the system </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

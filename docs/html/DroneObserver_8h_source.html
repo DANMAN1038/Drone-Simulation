@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classDroneObserver.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDroneObserver.html">DroneObserver</a> : <span class="keyword">public</span> <a class="code" href="classIObserver.html">IObserver</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="classDroneObserver.html">DroneObserver</a>(<a class="code" href="classDrone.html">Drone</a> &amp;subject, <a class="code" href="classIController.html">IController</a> &amp;controller) : subject_(subject), controller_(controller){</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this-&gt;subject_.Attach(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this-&gt;subject_.<a class="code" href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">Attach</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Hi, I&#39;m the Drone Observer \&quot;&quot;</span> &lt;&lt; ++DroneObserver::static_number_ &lt;&lt; <span class="stringliteral">&quot;\&quot;.\n&quot;</span>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    this-&gt;number_ = DroneObserver::static_number_;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  }</div>
@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    PrintInfo();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> RemoveMeFromTheList() {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    subject_.Detach(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    subject_.<a class="code" href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">Detach</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Drone Observer \&quot;&quot;</span> &lt;&lt; number_ &lt;&lt; <span class="stringliteral">&quot;\&quot; removed from the list.\n&quot;</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> PrintInfo() {</div>
@@ -109,8 +109,10 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassDrone_html"><div class="ttname"><a href="classDrone.html">Drone</a></div><div class="ttdoc">Represents a drone in a physical system. Drones move using euler integration based on a specified vel...</div><div class="ttdef"><b>Definition:</b> Drone.h:19</div></div>
+<div class="ttc" id="aclassIEntity_html_ace22b6af4e4c6804487d4a67d18a2c52"><div class="ttname"><a href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">IEntity::Attach</a></div><div class="ttdeci">void Attach(IObserver *observer)</div><div class="ttdoc">Attaches an IObserver object to the Observable object.</div><div class="ttdef"><b>Definition:</b> IEntity.h:171</div></div>
 <div class="ttc" id="aclassIController_html"><div class="ttname"><a href="classIController.html">IController</a></div><div class="ttdoc">class for IController used for transit service. Uses the Model View</div><div class="ttdef"><b>Definition:</b> IController.h:14</div></div>
 <div class="ttc" id="aclassIController_html_ab9ee95cb6f33c04b1323cec88e5d27b5"><div class="ttname"><a href="classIController.html#ab9ee95cb6f33c04b1323cec88e5d27b5">IController::SendEventToView</a></div><div class="ttdeci">virtual void SendEventToView(const std::string &amp;event, const JsonObject &amp;details)=0</div><div class="ttdoc">To allow message to be passed back to the view.</div></div>
+<div class="ttc" id="aclassIEntity_html_aaa8d8c603d62c13752ea67db807b536e"><div class="ttname"><a href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">IEntity::Detach</a></div><div class="ttdeci">void Detach(IObserver *observer)</div><div class="ttdoc">Detaches an IObserver object from the Observable object.</div><div class="ttdef"><b>Definition:</b> IEntity.h:179</div></div>
 <div class="ttc" id="aclassIObserver_html"><div class="ttname"><a href="classIObserver.html">IObserver</a></div><div class="ttdef"><b>Definition:</b> IObserver.h:6</div></div>
 <div class="ttc" id="aclassDroneObserver_html"><div class="ttname"><a href="classDroneObserver.html">DroneObserver</a></div><div class="ttdef"><b>Definition:</b> DroneObserver.h:6</div></div>
 <!-- start footer part -->
