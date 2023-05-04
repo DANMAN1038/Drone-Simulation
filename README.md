@@ -63,8 +63,10 @@ This is a full stack project that enables C++ code in the backend to receive inp
         Be more of an outlet for other team members to reach out to if stuck
 
 # UML extension diagrams: 
-<p align="center"> <img src="pics/notification-1.png" alt="strategyPatternUML" class="shadow" style="height:300px;width:auto;border-radius:5px;1"></p>
-<p align="center"> <img src="pics/csv extension - UML Class-1.png" alt="strategyPatternUML" class="shadow" style="height:300px;width:auto;border-radius:5px;1"></p>
+Notifications:
+<p align="center"> <img src="pics/notification-1.png" alt="strategyPatternUML" class="shadow" style="height:1000px;width:auto;border-radius:20px;1"></p>
+CSV extension
+<p align="center"> <img src="pics/csv extension - UML Class-1.png" alt="strategyPatternUML" class="shadow" style="height:1000px;width:auto;border-radius:20px;1"></p>
 
 # Youtube Demo: 
 https://youtu.be/rMZ8EDcK30c
