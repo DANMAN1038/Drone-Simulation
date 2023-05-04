@@ -29,7 +29,6 @@ This project is a simulation of a drone delivery system with a rough replica of 
     hit ctrl + p + q
     //To Kill the container
     docker kill
-<p align="center"> <img src="pics/notification-1.png" alt="strategyPatternUML" class="shadow" style="height:300px;width:auto;border-radius:5px;1"></p>
 # Code overview
 This is a full stack project that enables C++ code in the backend to receive input from our frontend which is made from a mix of HTML and Javascript. Users are able to add trips to the simulation using our frontend UI which will schedule a trip for a drone to take allowing the user to pick the path and travel method it takes. Users also have the ability to add humans whom can roam around freely, as well as speed up the simulation in the top left hand corner.
 
@@ -64,7 +63,8 @@ This is a full stack project that enables C++ code in the backend to receive inp
         Be more of an outlet for other team members to reach out to if stuck
 
 # UML extension diagrams: 
-
+<p align="center"> <img src="pics/notification-1.png" alt="strategyPatternUML" class="shadow" style="height:300px;width:auto;border-radius:5px;1"></p>
+<p align="center"> <img src="pics/csv extension - UML Class-1.png" alt="strategyPatternUML" class="shadow" style="height:300px;width:auto;border-radius:5px;1"></p>
 
 # Youtube Demo: 
 https://youtu.be/rMZ8EDcK30c
